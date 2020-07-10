@@ -3,6 +3,7 @@ version: '3.3'
 services:
   server:
     build: .
+    image: server
     command: npm start
     container_name: ffaf-server
     ports:
