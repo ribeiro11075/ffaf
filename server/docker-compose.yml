@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  server:
+    build: .
+    command: npm start
+    container_name: ffaf-server
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/worker
+      - /worker/node_modules
