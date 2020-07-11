@@ -1,16 +1,30 @@
-'use strict';
-
 const express = require('express');
+const testRoute = require('./route/testRoute');
+const generalRoute = require('./route/generalRoute');
 
-// Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
+// Assign server configuration
+const port = 8080;
+const host = '0.0.0.0';
 
-// App
+// Initialize application
 const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello Baby Girl Test');
+
+// Assign Routes
+app.use('/', generalRoute);
+app.use('/', testRoute);
+
+// Placeholder
+app.get('*', function(req, res, next) {
+  let err = new Error('Page Not Found');
+  err.statusCode = 404;
+  next(err);
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+// Placeholder
+app.use(function (err, req, res, next) {
+  res.json({err: err});
+});
+
+// Placeholder
+app.listen(port, host);
+console.log(`Running on http://${host}:${port}`);
