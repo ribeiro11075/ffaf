@@ -29,7 +29,7 @@ exports.select = async function(query) {
 };
 
 
-// create update/insert query
+// create upsert query
 exports.upsert = async function(query) {
       try {
           const client = await pool.connect();
@@ -41,12 +41,21 @@ exports.upsert = async function(query) {
 };
 
 
-// create insert API usage query
-exports.apiUsage = async function(parameters, route,user) {
+// create insert query to track usage
+exports.apiUsage = async function(req) {
       try {
-          const text = 'INSERT INTO apiUsage (employeeID, apiKey, url, parameter) values ($1, $2, $3, $4)';
-          const values = [user.employeeID, 'apiKey' in parameters ? parameters.apiKey : null, route.path, parameters];
-          query = {'text': text, 'values': values};
+          const text = 'INSERT INTO apiUsage (apiKey, url, parameters) values ($1, $2, $3)';
+          const url = req.route.path
+          const parameters = {}
+
+          if (req.method.toLowerCase() = 'get') {
+            const parameters = req.query;
+          } else if (req.method.toLowerCase() = 'post') {
+            const parameters = req.body;
+          }
+
+          const values = ['apiKey' in parameters ? parameters.apiKey : null, url, parameters];
+          const query = {'text': text, 'values': values};
           const client = await pool.connect();
           const res = await client.query(query);
           client.release();

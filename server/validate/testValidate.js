@@ -1,6 +1,6 @@
 const yup = require('yup')
 
-// Placeholder
+// placeholder
 const schema1 = yup.object().shape({
   schema1Field1: yup.number().integer()
                   .min(1)
@@ -12,7 +12,7 @@ const schema1 = yup.object().shape({
                   .required()
 });
 
-// Placeholder
+// placeholder
 const schema2 = yup.object().shape({
   schema2Field1: yup.number().integer()
                   .min(100)
@@ -24,7 +24,19 @@ const schema2 = yup.object().shape({
                   .required()
 });
 
+// placeholder
+const schema3 = yup.object().shape({
+  schema3Field1: yup.number().integer()
+                  .min(200)
+                  .max(300)
+                  .required(),
+  schema3Field2: yup.number().integer()
+                  .min(200)
+                  .max(300)
+                  .required()
+});
 
 // Placeholder
 module.exports.schema1 = schema1;
 module.exports.schema2 = schema2;
+module.exports.schema3 = schema3;
