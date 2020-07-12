@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const generalController = require('../controller/generalController');
 
+// placeholder
+const homeRoute = ['/', '/home']
+
 // define routes with controllers
-router.get(['/', '/home'], generalController.home);
+router.get(homeRoute, generalController.home);
 router.get('/login', generalController.login);
 router.get('/logout', generalController.logout);
 

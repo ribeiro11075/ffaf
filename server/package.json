@@ -2,16 +2,22 @@
   "name": "ffaf",
   "version": "1.0.0",
   "description": "ffaf",
+  "homepage": "https://github.com/ribeiro11075/ffaf#readme",
+  "bugs": {"url": "https://github.com/owner/project/issues"},
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "express": "^4.16.1",
     "nodemon": "^1.18.10",
     "yup": "^0.29.1",
-    "pg": "^8.3.0"
+    "pg": "^8.3.0",
+    "cors": "^2.8.5",
+    "morgan": "^1.10.0",
+    "body-parser": "^1.19.0"
   },
   "author": "",
   "license": "ISC"

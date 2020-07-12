@@ -1,12 +1,12 @@
 const { Pool } = require('pg');
 
 // assign database configuration values
-const host = 123
-const port = 123
-const database = 123
-const username = 123
-const password = 123
-const max = 123
+const host = 123;
+const port = 123;
+const database = 123;
+const username = 123;
+const password = 123;
+const max = 123;
 
 // create PostgreSQL pool of clients for performance
 const pool = new Pool({user: username, host: host, database: database, password: password, port: port, max: max});
@@ -45,14 +45,15 @@ exports.upsert = async function(query) {
 exports.apiUsage = async function(req) {
       try {
           const text = 'INSERT INTO apiUsage (apiKey, url, parameters) values ($1, $2, $3)';
-          const url = req.route.path
-          const parameters = {}
+          const url = req.route.path;
+          const method = req.method.toLowerCase();
+          const parameters = {};
 
-          if (req.method.toLowerCase() = 'get') {
-            const parameters = req.query;
-          } else if (req.method.toLowerCase() = 'post') {
-            const parameters = req.body;
-          }
+          if (method == 'get') {
+            parameters = req.query;
+          } else if (method == 'post') {
+            parameters = req.body;
+          };
 
           const values = ['apiKey' in parameters ? parameters.apiKey : null, url, parameters];
           const query = {'text': text, 'values': values};

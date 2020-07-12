@@ -1,7 +1,7 @@
 const yup = require('yup')
 
 // placeholder
-const schema1 = yup.object().shape({
+exports.schema1 = yup.object().shape({
   schema1Field1: yup.number().integer()
                   .min(1)
                   .max(100)
@@ -13,7 +13,7 @@ const schema1 = yup.object().shape({
 });
 
 // placeholder
-const schema2 = yup.object().shape({
+exports.schema2 = yup.object().shape({
   schema2Field1: yup.number().integer()
                   .min(100)
                   .max(200)
@@ -25,7 +25,7 @@ const schema2 = yup.object().shape({
 });
 
 // placeholder
-const schema3 = yup.object().shape({
+exports.schema3 = yup.object().shape({
   schema3Field1: yup.number().integer()
                   .min(200)
                   .max(300)
@@ -35,8 +35,3 @@ const schema3 = yup.object().shape({
                   .max(300)
                   .required()
 });
-
-// Placeholder
-module.exports.schema1 = schema1;
-module.exports.schema2 = schema2;
-module.exports.schema3 = schema3;
