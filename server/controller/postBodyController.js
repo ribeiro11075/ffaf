@@ -2,7 +2,6 @@
 // testValidate should be applied at route if option #1 selected
 // lodash should be applied at route if option #1 selected
 const database = require('../common/database');
-const testModel = require('../model/testModel');
 const postBodyValidate = require('../validate/postBodyValidate');
 const lodash = require('lodash')
 

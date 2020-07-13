@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -17,6 +18,9 @@ const app = express();
 app.use(cors());
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
+
+// placeholder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // assign routes
 app.use('/', generalRoute);

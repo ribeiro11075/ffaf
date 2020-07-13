@@ -18,11 +18,10 @@ exports.login = async function(req, res, next) {
   res.send('So You Would Like To Login Baby Girl Helder');
 };
 
-
 // placeholder
 exports.logout = async function(req, res, next) {
 
   // should be applied at middleware layer
   //database.apiUsage(req);
-  res.send('You Can Never Logout Baby Girl Helder');
+  res.send('So You Would Like To Logout Baby Girl Helder');
 };
