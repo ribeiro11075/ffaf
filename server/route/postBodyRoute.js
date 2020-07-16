@@ -1,19 +1,19 @@
 const express = require('express');
 const router = express.Router();
+
+// placeholder
 const postBodyController = require('../controller/postBodyController');
+const postBodySchema = require('../schema/postBodySchema');
+const validate =  require('../middleware/validate');
 
-// remove if request validation applied at controller
-const postBodyValidate = require('../validate/postBodyValidate');
-const validate =  require('../validate/validate');
-
-// remove if request validation applied at controller
-// omitted schema2 and schema3 based on other methods shown
-const schema1 = postBodyValidate.schema1;
+// placeholder
+const schema1 = postBodySchema.schema1;
+const schema2 = postBodySchema.schema2;
 
 // define routes with controllers
 // test1 applies middleware to validate user input per schema (remove if not needed)
 router.post('/postBody1', validate.validate(schema1), postBodyController.postBodyControllerItem1);
-router.post('/postBody2', postBodyController.postBodyControllerItem2);
+router.post('/postBody2', validate.validate(schema2), postBodyController.postBodyControllerItem2);
 router.post('/postBody3', postBodyController.postBodyControllerItem3);
 
 // placeholder

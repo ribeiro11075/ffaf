@@ -1,5 +1,5 @@
 // database api logging should be applied at middleware layer
-const database = require('../common/database');
+// const database = require('../common/database');
 
 // placeholder
 exports.home = async function(req, res, next) {

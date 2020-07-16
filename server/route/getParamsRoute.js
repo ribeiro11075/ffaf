@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+
+// placeholder
 const getParamsController = require('../controller/getParamsController');
 
 // define routes with controllers

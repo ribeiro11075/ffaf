@@ -1,8 +1,5 @@
 // database api logging should be applied at middleware layer
-// testValidate should be applied at route if option #1 selected
-// lodash should be applied at route if option #1 selected
-const database = require('../common/database');
-const lodash = require('lodash')
+// const database = require('../common/database');
 
 // placeholder
 exports.getParamsControllerItem1 = async function(req, res, next) {

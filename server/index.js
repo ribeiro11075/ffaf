@@ -9,7 +9,8 @@ const generalRoute = require('./route/generalRoute');
 const getQueryRoute = require('./route/getQueryRoute');
 const getParamsRoute = require('./route/getParamsRoute');
 const postBodyRoute = require('./route/postBodyRoute');
-
+const noRoute = require('./middleware/noRoute')
+const errorHandler = require('./middleware/errorHandler')
 
 // initialize application
 const app = express();
@@ -29,16 +30,10 @@ app.use('/', getParamsRoute);
 app.use('/', postBodyRoute);
 
 // placeholder
-app.get('*', function(req, res, next) {
-  let err = new Error('Page Not Found');
-  err.statusCode = 404;
-  next(err);
-});
+app.get('*', noRoute.noRoute);
 
 // placeholder
-app.use(function (err, req, res, next) {
-  res.json({err: err});
-});
+app.use(errorHandler.errorHandler);
 
 // assign server configuration
 const port = process.env.PORT || 8080;

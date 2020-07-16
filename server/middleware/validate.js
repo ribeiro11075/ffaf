@@ -9,7 +9,7 @@ exports.validate = (schema) => async (req, res, next) => {
   if (method == 'get') {
     initialSchemaInput = lodash.pick(req.query, schema._nodes);
   } else if (method == 'post') {
-    initialSchemaInput = lodash.pick(req.body, schema2._nodes);
+    initialSchemaInput = lodash.pick(req.body, schema._nodes);
   };
 
   try {
