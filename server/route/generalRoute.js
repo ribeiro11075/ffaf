@@ -7,8 +7,9 @@ const homeRoute = ['/', '/home']
 
 // define routes with controllers
 router.get(homeRoute, generalController.home);
-router.get('/login', generalController.login);
-router.get('/logout', generalController.logout);
+router.get('/about', generalController.about);
+router.get('/blog', generalController.blog);
+router.get('/contact', generalController.contact);
 
 // placeholder
 module.exports = router;

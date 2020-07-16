@@ -2,7 +2,7 @@ const yup = require('yup');
 const lodash = require('lodash')
 
 // placeholder
-exports.validate = (schema) => async (req, res, next) => {
+exports.validateSchema = (schema) => async (req, res, next) => {
 
   const method = req.method.toLowerCase();
 

@@ -6,9 +6,12 @@ const bodyParser = require('body-parser');
 
 // placeholder
 const generalRoute = require('./route/generalRoute');
+const accountRoute = require('./route/accountRoute');
 const getQueryRoute = require('./route/getQueryRoute');
 const getParamsRoute = require('./route/getParamsRoute');
 const postBodyRoute = require('./route/postBodyRoute');
+
+// placeholder
 const noRoute = require('./middleware/noRoute')
 const errorHandler = require('./middleware/errorHandler')
 
@@ -21,10 +24,13 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 
 // placeholder
+app.set('views', path.join(__dirname, 'view'));
+app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // assign routes
 app.use('/', generalRoute);
+app.use('/', accountRoute);
 app.use('/', getQueryRoute);
 app.use('/', getParamsRoute);
 app.use('/', postBodyRoute);
