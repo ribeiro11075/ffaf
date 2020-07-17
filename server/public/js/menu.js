@@ -1,4 +1,1 @@
-$(document).ready(function(){
-    var element = $('meta[name="active-menu"]').attr('content');
-    $('#' + element).addClass('active');
-});
+$('.navbar .nav-item a[href="' + location.pathname + '"]').closest('li').addClass('active');
