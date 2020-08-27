@@ -8,7 +8,7 @@ exports.schema1 = yup.object().shape({
                   .required(),
   schema1Field2: yup.number().integer()
                   .min(1)
-                  .max(100)
+                  .max(400)
                   .required()
 });
 

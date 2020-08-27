@@ -9,5 +9,5 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - .:/worker
-      - /worker/node_modules
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules

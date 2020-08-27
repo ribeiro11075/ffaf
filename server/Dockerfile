@@ -1,7 +1,7 @@
 FROM node
 
-WORKDIR /worker
-COPY package.json /worker/
+WORKDIR /usr/src/app
+COPY package.json ./
 RUN npm install
 
-COPY . /worker/
+COPY . .
