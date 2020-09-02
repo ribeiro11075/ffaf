@@ -3,6 +3,7 @@ const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const database = require('./common/database')
 
 // placeholder
 const generalRoute = require('./route/generalRoute');
@@ -10,6 +11,7 @@ const accountRoute = require('./route/accountRoute');
 const getQueryRoute = require('./route/getQueryRoute');
 const getParamsRoute = require('./route/getParamsRoute');
 const postBodyRoute = require('./route/postBodyRoute');
+const dockerRoute = require('./route/dockerRoute')
 
 // placeholder
 const noRoute = require('./middleware/noRoute')
@@ -34,6 +36,7 @@ app.use('/', accountRoute);
 app.use('/', getQueryRoute);
 app.use('/', getParamsRoute);
 app.use('/', postBodyRoute);
+app.use('/', dockerRoute);
 
 // placeholder
 app.get('*', noRoute.noRoute);
@@ -42,8 +45,8 @@ app.get('*', noRoute.noRoute);
 app.use(errorHandler.errorHandler);
 
 // assign server configuration
-const port = process.env.PORT || 8080;
-const host = process.env.HOST || '0.0.0.0';
+const port = process.env.NODE_PORT;
+const host = process.env.NODE_HOST;
 
 // placeholder
 app.listen(port, host);

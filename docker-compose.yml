@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  node-backend:
+    container_name: node-backend
+    image: node-backend
+    depends_on:
+      - postgresql-database
+    build: ./server/
+    env_file:
+      - ./server/.env
+    command: npm run dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+
+  postgresql-database:
+    container_name: postgresql-database
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: test
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./database/data.sql:/docker-entrypoint-initdb.d/02_data.sql
