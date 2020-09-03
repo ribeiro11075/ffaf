@@ -2,11 +2,11 @@
 ffaf
 
 ### Run Backend Server In Development Mode
-  [ ] Confirm a Dockerfile file exists in the server folder
-  [ ] Confirm a Dockerfile file exists in the database folder
-  [ ] Confirm a docker-compose.yml file exists in the root folder
-  [ ] Navigate to the root folder
-  [ ] Run docker-compose up --build
+- [ ] Confirm a Dockerfile file exists in the server folder
+- [ ] Confirm a Dockerfile file exists in the database folder
+- [ ] Confirm a docker-compose.yml file exists in the root folder
+- [ ] Navigate to the root folder
+- [ ] Run docker-compose up --build
 
 ### Setup a .env file in the root folder
 1. `NODE_PORT=8080`
