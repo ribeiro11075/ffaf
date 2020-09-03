@@ -8,7 +8,7 @@ services:
       - postgresql-database
     build: ./server/
     env_file:
-      - ./server/.env
+      - .env
     command: npm run dev
     ports:
       - "8080:8080"
@@ -17,15 +17,11 @@ services:
       - /usr/src/app/node_modules
 
   postgresql-database:
-    container_name: postgresql-database
-    image: postgres
+    container_name: postgres-database
+    image: postgres-database
+    build: ./database/
+    env_file:
+      - .env
     restart: always
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: test
-    volumes:
-      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
-      - ./database/data.sql:/docker-entrypoint-initdb.d/02_data.sql

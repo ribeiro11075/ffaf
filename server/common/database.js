@@ -1,12 +1,12 @@
 const { Pool } = require('pg');
 
 // assign database configuration values
-const host = process.env.POSTGRESQL_HOST
-const port = process.env.POSTGRESQL_PORT
-const username = process.env.POSTGRESQL_USER
-const password = process.env.POSTGRESQL_PASSWORD
-const database = process.env.POSTGRESQL_DATABASE
-const max = process.env.POSTGRESQL_MAX_CONNECTIONS
+const host = process.env.POSTGRES_HOST
+const port = process.env.POSTGRES_PORT
+const username = process.env.POSTGRES_USER
+const password = process.env.POSTGRES_PASSWORD
+const database = process.env.POSTGRES_DB
+const max = process.env.POSTGRES_MAX_CONNECTIONS
 
 // create PostgreSQL pool of clients for performance
 const pool = new Pool({user: username, host: host, database: database, password: password, port: port, max: max});
