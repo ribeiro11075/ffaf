@@ -47,16 +47,19 @@ exports.apiUsage = async function(req) {
           const text = 'INSERT INTO apiUsage (apiKey, url, parameters) values ($1, $2, $3)';
           const url = req.route.path;
           const method = req.method.toLowerCase();
-          const parameters = {};
 
           if (method == 'get') {
             parameters = req.query;
           } else if (method == 'post') {
             parameters = req.body;
-          };
+          } else {
+            parameters = {};
+          }
 
           const values = ['apiKey' in parameters ? parameters.apiKey : null, url, parameters];
           const query = {'text': text, 'values': values};
+
+          console.log(values, query)
           const client = await pool.connect();
           const res = await client.query(query);
           client.release();

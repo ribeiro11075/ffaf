@@ -11,7 +11,11 @@ const accountRoute = require('./route/accountRoute');
 const getQueryRoute = require('./route/getQueryRoute');
 const getParamsRoute = require('./route/getParamsRoute');
 const postBodyRoute = require('./route/postBodyRoute');
-const dockerRoute = require('./route/dockerRoute')
+const adminRouter = require('./route/adminRoute');
+const publicRouter = require('./route/publicRoute');
+const employeeRouter = require('./route/employeeRoute');
+const teamRouter = require('./route/teamRoute');
+const swaggerRouter = require('./route/swaggerRoute');
 
 // placeholder
 const noRoute = require('./middleware/noRoute')
@@ -36,7 +40,11 @@ app.use('/', accountRoute);
 app.use('/', getQueryRoute);
 app.use('/', getParamsRoute);
 app.use('/', postBodyRoute);
-app.use('/', dockerRoute);
+app.use('/', adminRouter);
+app.use('/', publicRouter);
+app.use('/', employeeRouter);
+app.use('/', teamRouter);
+app.use('/', swaggerRouter);
 
 // placeholder
 app.get('*', noRoute.noRoute);
